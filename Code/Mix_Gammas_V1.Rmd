@@ -1,0 +1,80 @@
+---
+title: "Mix_Gammas_V1"
+author: "Xi Chen"
+date: "June 11, 2016"
+output: pdf_document
+---
+## Read in the gammamixEM2.R file
+```{r setup, echo=FALSE}
+source("./Code/gammamixEM2.R")
+set.seed(518)
+library("mixtools")
+library("MASS")
+```
+
+## Consider 12 settings and for each of the 12 conditions, do the follwoing:
+Number of samples: B
+Sample size: n
+
+```{r}
+sample.size = 5
+# B = 5000
+n.iter = c(100, 250, 500)
+
+conditions <- list()
+# Condition 1
+conditions[["C1"]] <- cbind(c(2,5),c(3,4),c(0.5,0.5))
+colnames(conditions[["C1"]]) <- c("a", "b", "l")
+# Condition 2
+conditions[["C2"]] <- cbind(c(2,5),c(3,4),c(0.2,0.8))
+colnames(conditions[["C2"]]) <- c("a", "b", "l")
+# Condition 3
+conditions[["C3"]] <- cbind(c(1,10),c(1,1),c(0.5,0.5))
+colnames(conditions[["C3"]]) <- c("a", "b", "l")
+# Condition 4
+conditions[["C4"]] <- cbind(c(1,10),c(1,1),c(0.2,0.8))
+colnames(conditions[["C4"]]) <- c("a", "b", "l")
+# Condition 5
+conditions[["C5"]] <- cbind(c(2,30),c(3,2),c(0.5,0.5))
+colnames(conditions[["C5"]]) <- c("a", "b", "l")
+# Condition 6
+conditions[["C6"]] <- cbind(c(2,30),c(3,2),c(0.2,0.8))
+colnames(conditions[["C6"]]) <- c("a", "b", "l")
+# Condition 7
+conditions[["C7"]] <- cbind(c(2,5,6),c(3,5,7),c(1/3,1/3,1/3))
+colnames(conditions[["C7"]]) <- c("a", "b", "l")
+# Condition 8
+conditions[["C8"]] <- cbind(c(2,5,6),c(3,5,7),c(0.2,0.3,0.5))
+colnames(conditions[["C8"]]) <- c("a", "b", "l")
+# Condition 9
+conditions[["C9"]] <- cbind(c(1,20,50),c(2,4,3),c(0.2,0.3,0.5))
+colnames(conditions[["C9"]]) <- c("a", "b", "l")
+# Condition 10
+conditions[["C10"]] <- cbind(c(1,20,50),c(2,4,3),c(0.2,0.3,0.5))
+colnames(conditions[["C10"]]) <- c("a", "b", "l")
+# Condition 11
+conditions[["C11"]] <- cbind(c(2,50,180),c(1,2,3),c(0.2,0.3,0.5))
+colnames(conditions[["C11"]]) <- c("a", "b", "l")
+# Condition 12
+conditions[["C12"]] <- cbind(c(2,50,180),c(1,2,3),c(0.2,0.3,0.5))
+colnames(conditions[["C12"]]) <- c("a", "b", "l")
+
+
+```
+
+## Simulation:
+Problem: I set the seed but the numbers generated are still random.
+
+
+```{r}
+set.seed(111)
+simulation <- function(sample.size, parameters){
+        samples <- apply(parameters, 1, function(i){rgamma(sample.size* i[3], shape = i[1], scale = i[2])
+        })
+        return(unlist(samples))
+}
+
+simulation(10, conditions[["C12"]])
+
+```
+
