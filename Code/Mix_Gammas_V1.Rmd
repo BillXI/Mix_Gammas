@@ -66,7 +66,7 @@ conditions <- parameters()
 ```
 
 ## Generates Sample:
-Problem: I set the seed but the numbers generated are still random, is this right?
+We are using the rate not beta, which rate = 1/beta
 
 ```{r}
 set.seed(111)
@@ -113,6 +113,8 @@ estimation2.f <- function(dat){
 * Transform simulated data by taking the cub root, using normalmixEM to classify each observation to a component, which will effectively partition the simulated data into k groups. 
 
 * Do this classfication
+* Meeting June 22, 16: 
+   * The fitdist() function from tent's code might not stable, so we decided to use the gamma.nr(), used it to estimate the parameter after classification and transform back to gamma with ^3. 
 ```{r}
 estimation2.f <- function(dat){
         datCubeRoot <- dat^(1/3)
