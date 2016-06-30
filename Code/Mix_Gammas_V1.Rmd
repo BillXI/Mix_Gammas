@@ -13,13 +13,12 @@ library("MASS")
 ```
 
 ## Consider 12 settings and for each of the 12 conditions, do the follwoing:
-Number of samples: B
-Sample size: n
+Number of samples: n.iter (B)  = 5000 samples of size n (Sample size: n). 
 
 ```{r}
-sample.size = 5
-# sample.size = 5000
-n.iter = c(100, 250, 500)
+# sample.size = 5
+n.iter = 5000 # this is B
+sample.size = c(100, 250, 500)
 
 parameters <- function(){
         conditions <- list()
@@ -75,12 +74,14 @@ sample.generation <- function(sample.size, parameters){
         })
         return(unlist(samples))
 }
-sample.generation(10, conditions[["C12"]])
+
+sample <- sample.generation(100, conditions[["C12"]])
+
 
 ```
 
 ## Estimation:
-For each set of samples, estimate the mixture-of-gammas model using 4 different stragegies:
+For each set of samples, estimate the mixture-of-gammas model using 4 different stragegies. For each of the strategy, keep 
 
 ### Strategies 1
 Specify the starting values in gammamixEM2 using the parameter values for the simulation.
@@ -91,23 +92,30 @@ estimation1.f <- function(dat, para){
         b <- para$b
         l <- para$l
         numOfDist <- nrow(para)
-        output1 <- lapply(dat, function{
-                gammamixEM2(x, lambda = l, alpha = a, beta = b, k = numOfDist,)
-        })
-        return(output1)
+        output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist,)
+        return(output[2:4])
 }
+
+test1 <- estimation1.f(sample, conditions[["C12"]])
+test1
 ```
 
 ### Strategies 2
 Do not specify starting values for any of the parameters in gammamixEM2. Run the algorithm 10 times and retain the output that has the best log-likelihood value; i.e. the fit that has the largest log-likelihood value.
 ```{r}
-estimation2.f <- function(dat){
+Rprof("profile2.out")
+estimation2.f <- function(dat, para){
         numOfDist <- nrow(para)
-        output1 <- lapply(dat, function{
-                gammamixEM2(x, k = numOfDist)
-        })
-        return(output1)
+        output <- gammamixEM2(dat, k = numOfDist,)
+        return(output[2:4])
 }
+
+test2 <- estimation2.f(sample, conditions[["C12"]])
+test2
+Rprof(NULL)
+
+library(profr)
+ggplot.profr(parse_rprof("profile2.out"))
 ```
 ### Strategies 3
 * Transform simulated data by taking the cub root, using normalmixEM to classify each observation to a component, which will effectively partition the simulated data into k groups. 
@@ -115,18 +123,41 @@ estimation2.f <- function(dat){
 * Do this classfication
 * Meeting June 22, 16: 
    * The fitdist() function from tent's code might not stable, so we decided to use the gamma.nr(), used it to estimate the parameter after classification and transform back to gamma with ^3. 
+   
+   
+   
+################ Need to ask which is parameter needs to pass in, and eps is tolerance what is the value?
 ```{r}
-estimation2.f <- function(dat){
+source("./Code/nr_gamma.R")
+Rprof("profile3.out")
+dat = sample
+numOfDist = 3
+estimation3.f <- function(dat, para){
         datCubeRoot <- dat^(1/3)
         numOfDist <- nrow(para)
-        output1 <- lapply(datCubeRoot, function{
-                classification < - normalmixEM(x, k = numOfDist)
-        })
-        return(output1)
+        classification <- normalmixEM(datCubeRoot, k = numOfDist) ## The classified data are clustered and not like real classified.
+        clf.dat <- apply((classification$posterior == T), 2, function(x) dat[x] )
+        a.est <- classification$mu
+        b.est <- classification$sigma
+        l.est <- classification$lambda
+        # nr.gamma(x, alpha = a, eps = b, lambda = l)
+        para.est <- lapply(c(1:numOfDist), function(i){
+                print(i)
+                nr.gamma(x=unlist(clf.dat[i]), alpha = a.est[i], eps = 0.01, lambda = l.est[i])
+                }) 
+        
+        output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist,)
+        return(para.est)
 }
+test3 <- estimation3.f(sample, conditions[["C12"]])
+test3
+Rprof(NULL)
+
+library(profr)
+ggplot.profr(parse_rprof("profile3.out"))
 ```
 ### Strategies 4
-
+Re do the strategy 3, but set $alpha$ to the true parameter values and set $fix.alpha=TRUE$ in $gammamixEM2$.
 ```{r}
 
 ```
