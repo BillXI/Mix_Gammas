@@ -106,7 +106,7 @@ Do not specify starting values for any of the parameters in gammamixEM2. Run the
 Rprof("profile2.out")
 estimation2.f <- function(dat, para){
         numOfDist <- nrow(para)
-        output <- gammamixEM2(dat, k = numOfDist,)
+        output <- gammamixEM2(dat, k = numOfDist, epsilon = 0.1, verb = T)
         return(output[2:4])
 }
 
@@ -137,17 +137,16 @@ estimation3.f <- function(dat, para){
         numOfDist <- nrow(para)
         classification <- normalmixEM(datCubeRoot, k = numOfDist) ## The classified data are clustered and not like real classified.
         clf.dat <- apply((classification$posterior == T), 2, function(x) dat[x] )
-        a.est <- classification$mu
-        b.est <- classification$sigma
-        l.est <- classification$lambda
-        # nr.gamma(x, alpha = a, eps = b, lambda = l)
         para.est <- lapply(c(1:numOfDist), function(i){
-                print(i)
-                nr.gamma(x=unlist(clf.dat[i]), alpha = a.est[i], eps = 0.01, lambda = l.est[i])
+                test = try(nr.gamma(x=unlist(clf.dat[i]), eps = 0.01), silent = T)
+                if (class(test)=="try-error"){
+                        test = as.numeric(gammamix.init(unlist(clf.dat[i]), lambda = 1, k = 1)[2:3])                
+                        return(test)}
+                else{return(test$theta)}
                 }) 
-        
-        output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist,)
-        return(para.est)
+        print(para.est)
+        #output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist,)
+        #return(para.est)
 }
 test3 <- estimation3.f(sample, conditions[["C12"]])
 test3
@@ -159,6 +158,32 @@ ggplot.profr(parse_rprof("profile3.out"))
 ### Strategies 4
 Re do the strategy 3, but set $alpha$ to the true parameter values and set $fix.alpha=TRUE$ in $gammamixEM2$.
 ```{r}
+source("./Code/nr_gamma.R")
+Rprof("profile3.out")
+dat = sample
+numOfDist = 3
+estimation3.f <- function(dat, para){
+        datCubeRoot <- dat^(1/3)
+        numOfDist <- nrow(para)
+        classification <- normalmixEM(datCubeRoot, k = numOfDist) ## The classified data are clustered and not like real classified.
+        clf.dat <- apply((classification$posterior == T), 2, function(x) dat[x] )
+        a.est <- classification$mu
+        b.est <- classification$sigma
+        l.est <- classification$lambda
+        # nr.gamma(x, alpha = a, eps = b, lambda = l)
+        para.est <- lapply(c(1:numOfDist), function(i){
+                print(i)
+                nr.gamma(x=unlist(clf.dat[i]), alpha = a.est[i], eps = 0.01, lambda = l.est[i])   # here has issue and what is the output like?
+                }) 
+        
+        output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist,)
+        return(para.est)
+}
+test3 <- estimation3.f(sample, conditions[["C12"]])
+test3
+Rprof(NULL)
 
+library(profr)
+ggplot.profr(parse_rprof("profile3.out"))
 ```
 

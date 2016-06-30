@@ -1,7 +1,10 @@
 # This is a function created to find MLE for the parameters in the gamma distribution
 # need four inputs : data(x), tolerance(eps), initial values of two parameters, (alpha, lambda)
-nr.gamma <- function(x,eps,alpha,lambda)
+nr.gamma <- function(x,eps)
 {
+        tmp = gammamix.init(x, lambda=1, k=1)
+        alpha = tmp$alpha
+        lambda = tmp$beta
         n = length(x);
         sumx = sum(x);
         sumlogx = sum(log(x))
@@ -21,7 +24,7 @@ nr.gamma <- function(x,eps,alpha,lambda)
                 lambda = theta[2];
                 loglik = n*alpha*log(lambda) + (alpha-1)*sum(log(x)) - lambda*sum(x) - n*log(gamma(alpha)); # evaluate the loglikelihood
                 diff = sum(abs(theta-theta.old))  # calculate the difference between old theta and new theta
-                print(c(theta,loglik)) # print theta and corresponding loglikelihood at every iteration
+                #nprint(c(theta,loglik)) # print theta and corresponding loglikelihood at every iteration
         }
         list(theta=theta,cov=solve(Jbar),loglik=loglik) # save the outputs: final estimates for theta and maximized log likelihood
 }

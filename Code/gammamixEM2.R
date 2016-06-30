@@ -6,7 +6,7 @@ gammamix.init <- function (x, lambda = NULL, alpha = NULL, beta = NULL, k = 2)
     		while(cond){
         		lambda = runif(k)
         		lambda = lambda/sum(lambda)
-        		if(min(lambda)<0.05) cond=TRUE
+        		if(min(lambda)<0.05) cond=TRUE else cond=FALSE
         }
     }
     else k = length(lambda)
