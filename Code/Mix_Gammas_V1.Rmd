@@ -80,8 +80,8 @@ sample <- sample.generation(100, conditions[["C12"]])
 
 ```
 
-## Estimation:
-For each set of samples, estimate the mixture-of-gammas model using 4 different stragegies. For each of the strategy, keep 
+## Parameter Estimation:
+For each set of samples, estimate the mixture-of-gammas model using 4 different stragegies.
 
 ### Strategies 1
 Specify the starting values in gammamixEM2 using the parameter values for the simulation.
@@ -92,7 +92,7 @@ estimation1.f <- function(dat, para){
         b <- para$b
         l <- para$l
         numOfDist <- nrow(para)
-        output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist,)
+        output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist)
         return(output[2:4])
 }
 
@@ -106,16 +106,13 @@ Do not specify starting values for any of the parameters in gammamixEM2. Run the
 Rprof("profile2.out")
 estimation2.f <- function(dat, para){
         numOfDist <- nrow(para)
-        output <- gammamixEM2(dat, k = numOfDist, epsilon = 0.1, verb = T)
+        output <- gammamixEM2(dat, k = numOfDist, epsilon = 0.1)
         return(output[2:4])
 }
 
 test2 <- estimation2.f(sample, conditions[["C12"]])
 test2
-Rprof(NULL)
 
-library(profr)
-ggplot.profr(parse_rprof("profile2.out"))
 ```
 ### Strategies 3
 * Transform simulated data by taking the cub root, using normalmixEM to classify each observation to a component, which will effectively partition the simulated data into k groups. 
@@ -128,10 +125,6 @@ ggplot.profr(parse_rprof("profile2.out"))
    
 ################ Need to ask which is parameter needs to pass in, and eps is tolerance what is the value?
 ```{r}
-source("./Code/nr_gamma.R")
-Rprof("profile3.out")
-dat = sample
-numOfDist = 3
 estimation3.f <- function(dat, para){
         datCubeRoot <- dat^(1/3)
         numOfDist <- nrow(para)
@@ -144,46 +137,55 @@ estimation3.f <- function(dat, para){
                         return(test)}
                 else{return(test$theta)}
                 }) 
-        print(para.est)
-        #output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist,)
-        #return(para.est)
+        a <- unlist(data.frame(para.est)[1,])
+        b <- unlist(data.frame(para.est)[2,])
+        l <- apply((classification$posterior == T), 2, function(x) {table(x)["TRUE"]/length(x)} )
+        output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist)[2:4]
+        return(output)
 }
 test3 <- estimation3.f(sample, conditions[["C12"]])
 test3
-Rprof(NULL)
 
-library(profr)
-ggplot.profr(parse_rprof("profile3.out"))
 ```
 ### Strategies 4
 Re do the strategy 3, but set $alpha$ to the true parameter values and set $fix.alpha=TRUE$ in $gammamixEM2$.
 ```{r}
-source("./Code/nr_gamma.R")
-Rprof("profile3.out")
 dat = sample
 numOfDist = 3
-estimation3.f <- function(dat, para){
+estimation4.f <- function(dat, para){
         datCubeRoot <- dat^(1/3)
         numOfDist <- nrow(para)
-        classification <- normalmixEM(datCubeRoot, k = numOfDist) ## The classified data are clustered and not like real classified.
+        classification <- normalmixEM(datCubeRoot, k = numOfDist)
         clf.dat <- apply((classification$posterior == T), 2, function(x) dat[x] )
-        a.est <- classification$mu
-        b.est <- classification$sigma
-        l.est <- classification$lambda
-        # nr.gamma(x, alpha = a, eps = b, lambda = l)
         para.est <- lapply(c(1:numOfDist), function(i){
-                print(i)
-                nr.gamma(x=unlist(clf.dat[i]), alpha = a.est[i], eps = 0.01, lambda = l.est[i])   # here has issue and what is the output like?
+                test = try(nr.gamma(x=unlist(clf.dat[i]), eps = 0.01), silent = T)
+                if (class(test)=="try-error"){
+                        test = as.numeric(gammamix.init(unlist(clf.dat[i]), lambda = 1, k = 1)[2:3])                
+                        return(test)}
+                else{return(test$theta)}
                 }) 
-        
-        output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist,)
-        return(para.est)
+        a <- para$a
+        b <- unlist(data.frame(para.est)[2,])
+        l <- apply((classification$posterior == T), 2, function(x) {table(x)["TRUE"]/length(x)} )
+        output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist, fix.alpha = T)[2:4]
+        return(output)
 }
-test3 <- estimation3.f(sample, conditions[["C12"]])
-test3
-Rprof(NULL)
+test4 <- estimation4.f(sample, conditions[["C12"]])
+test4
 
-library(profr)
-ggplot.profr(parse_rprof("profile3.out"))
 ```
 
+## Note for simulation:
+* For each of the 4 strategies, keep a list of your output. Construct each list to be of length 5000 such that each element of th elist is a matrix with the estimated parameter values and the final log-likehood. Specifiically, if out is your output, then collect your output as $new.out <- rbind(out$gamma.pars, out$lambda, out$loglik)$. Note the fourth row of the output matrix will simply be the log-likehood repeated k times.
+
+* In your lists, make sure you post-process the output by ordering the columns based on their estimates of the component means. Specifically, if you have $new.out$ as defined above, then reorder the columns using <code>new.out<-new.out[,order(new.out[1,]/new.out[2,])]</code>. We do this to avoid the label switching problem in mixture estimation.
+
+* In simulations, se the covergence creterion argument in gammamixEM2 to epsilon = 1e-5.
+
+* Make sure that simulation can recover in case of an unintened error in the EM algorithm. One way to do this is to enclose everything within a while statement. Then wrap the try funtion with option silent=FALSE (should be T?) around the gammamixEM2. Test to see if the output is of class "try-error". If it is, prompt your loop to return to the previous iteration. If not, let the loop increment appropriately.
+
+In total, there are 12 matrix condition, 3 different samplesize, and 4 different starting value strategies. Total condition is 144.
+
+* For each of the 144 simulation condition, calculate the MSEs from the true parameter value as well as the mean and standard deviation of your parameter estimates; i.e., the MC standard deviation of your 5000 estimates will provide an estimate of the standard errors for each parameter.
+
+* USe parallize code and run from the Unix clusters.
