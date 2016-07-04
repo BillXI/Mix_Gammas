@@ -6,11 +6,11 @@
 
 # MAX use of cpys and memory
 
-#PBS -l ncpus=30,mem=8G,walltime=24:00:00
+#PBS -l nodes=2,ncpus=30,mem=4G,walltime=48:00:00
 
-#PBS -q short
+#PBS -q default
 
-#PBS -M jiaying.weng@uky.edu
+#PBS -M s@uky.edu
 
 #PBS -m abe
 
