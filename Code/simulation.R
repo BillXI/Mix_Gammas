@@ -1,8 +1,9 @@
-source("./Code/gammamixEM2.R")
+setwd("/home/xch234/mix_gammas/Mix_Gammas/Code")
+source("./gammamixEM2.R")
 set.seed(518)
-library("mixtools")
+#library("mixtools")
 library("MASS")
-
+library(RJSONIO)
 ##################
 # sample.size = 5
 n.iter = 5000 # this is B
@@ -135,4 +136,8 @@ simulation <- function(s.size, condition, strategy){
 sim1 <- mclapply( (1:n.iter), function(i){
         results <- simulation(sample.size, conditions, estimation1.f)
         return(results)
-})
+}, mc.cores=8)
+
+exportJson <- toJSON(sim1)
+write(exportJson, "sim1.json")
+
