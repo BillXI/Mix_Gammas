@@ -176,11 +176,11 @@ test4
 ```
 
 ## Note for simulation:
-* For each of the 4 strategies, keep a list of your output. Construct each list to be of length 5000 such that each element of th elist is a matrix with the estimated parameter values and the final log-likehood. Specifiically, if out is your output, then collect your output as $new.out <- rbind(out$gamma.pars, out$lambda, out$loglik)$. Note the fourth row of the output matrix will simply be the log-likehood repeated k times.
+* For each of the 4 strategies, keep a list of your output. Construct each list to be of length 5000 such that each element of the list is a matrix with the estimated parameter values and the final log-likehood. Specifiically, if out is your output, then collect your output as $new.out <- rbind(out$gamma.pars, out$lambda, out$loglik)$. Note the fourth row of the output matrix will simply be the log-likehood repeated k times.
 
-* In your lists, make sure you post-process the output by ordering the columns based on their estimates of the component means. Specifically, if you have $new.out$ as defined above, then reorder the columns using <code>new.out<-new.out[,order(new.out[1,]/new.out[2,])]</code>. We do this to avoid the label switching problem in mixture estimation.
+* In your lists, make sure you post-process the output by ordering the columns based on their estimates of the component means. Specifically, if you have $new.out$ as defined above, then reorder the columns using <code> new.out<-new.out[,order(new.out[1,]/new.out[2,])] </code>. We do this to avoid the label switching problem in mixture estimation.
 
-* In simulations, se the covergence creterion argument in gammamixEM2 to epsilon = 1e-5.
+* In simulations, so the covergence creterion argument in gammamixEM2 to epsilon = 1e-5.
 
 * Make sure that simulation can recover in case of an unintened error in the EM algorithm. One way to do this is to enclose everything within a while statement. Then wrap the try funtion with option silent=FALSE (should be T?) around the gammamixEM2. Test to see if the output is of class "try-error". If it is, prompt your loop to return to the previous iteration. If not, let the loop increment appropriately.
 
@@ -189,3 +189,22 @@ In total, there are 12 matrix condition, 3 different samplesize, and 4 different
 * For each of the 144 simulation condition, calculate the MSEs from the true parameter value as well as the mean and standard deviation of your parameter estimates; i.e., the MC standard deviation of your 5000 estimates will provide an estimate of the standard errors for each parameter.
 
 * USe parallize code and run from the Unix clusters.
+
+```{r simulation}
+library(parallel)
+simulation <- function(s.size, condition, strategy){
+        # 12 conditions
+        results <- mclapply(condition, function(para){
+                # 3 sample size
+                one.iteration.results <- lapply(s.size, function(s){
+                        dat <- sample.generation(sample.size = s, parameters = para)
+                        one.sample.result <- strategy(dat, para)
+                        return(one.sample.result)
+                })
+                return(one.iteration.results)
+        })        
+        return(results)
+}
+
+test.sim <- simulation(sample.size, conditions, estimation1.f)
+```
