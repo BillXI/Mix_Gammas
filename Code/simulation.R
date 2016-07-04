@@ -1,21 +1,9 @@
----
-title: "Mix_Gammas_V1"
-author: "Xi Chen"
-date: "June 11, 2016"
-output: pdf_document
----
-## Read in the gammamixEM2.R file
-```{r setup, echo=FALSE}
 source("./Code/gammamixEM2.R")
 set.seed(518)
 library("mixtools")
 library("MASS")
-```
 
-## Consider 12 settings and for each of the 12 conditions, do the follwoing:
-Number of samples: n.iter (B)  = 5000 samples of size n (Sample size: n). 
-
-```{r}
+##################
 # sample.size = 5
 n.iter = 5000 # this is B
 sample.size = c(100, 250, 500)
@@ -62,12 +50,7 @@ parameters <- function(){
 }
 conditions <- parameters()
 
-```
-
-## Generates Sample:
-We are using the rate not beta, which rate = 1/beta
-
-```{r}
+#################################
 set.seed(111)
 sample.generation <- function(sample.size, parameters){
         samples <- apply(parameters, 1, function(i){rgamma(sample.size* i[3], shape = i[1], scale = i[2])
@@ -77,16 +60,7 @@ sample.generation <- function(sample.size, parameters){
 
 sample <- sample.generation(100, conditions[["C12"]])
 
-
-```
-
-## Parameter Estimation:
-For each set of samples, estimate the mixture-of-gammas model using 4 different stragegies.
-
-### Strategies 1
-Specify the starting values in gammamixEM2 using the parameter values for the simulation.
-
-```{r}
+###################################
 estimation1.f <- function(dat, para){
         a <- para$a
         b <- para$b
@@ -96,35 +70,12 @@ estimation1.f <- function(dat, para){
         return(output[2:4])
 }
 
-test1 <- estimation1.f(sample, conditions[["C12"]])
-test1
-```
-
-### Strategies 2
-Do not specify starting values for any of the parameters in gammamixEM2. Run the algorithm 10 times and retain the output that has the best log-likelihood value; i.e. the fit that has the largest log-likelihood value.
-```{r}
-Rprof("profile2.out")
 estimation2.f <- function(dat, para){
         numOfDist <- nrow(para)
         output <- gammamixEM2(dat, k = numOfDist, epsilon = 0.1)
         return(output[2:4])
 }
 
-test2 <- estimation2.f(sample, conditions[["C12"]])
-test2
-
-```
-### Strategies 3
-* Transform simulated data by taking the cub root, using normalmixEM to classify each observation to a component, which will effectively partition the simulated data into k groups. 
-
-* Do this classfication
-* Meeting June 22, 16: 
-   * The fitdist() function from tent's code might not stable, so we decided to use the gamma.nr(), used it to estimate the parameter after classification and transform back to gamma with ^3. 
-   
-   
-   
-################ Need to ask which is parameter needs to pass in, and eps is tolerance what is the value?
-```{r}
 estimation3.f <- function(dat, para){
         datCubeRoot <- dat^(1/3)
         numOfDist <- nrow(para)
@@ -136,22 +87,14 @@ estimation3.f <- function(dat, para){
                         test = as.numeric(gammamix.init(unlist(clf.dat[i]), lambda = 1, k = 1)[2:3])                
                         return(test)}
                 else{return(test$theta)}
-                }) 
+        }) 
         a <- unlist(data.frame(para.est)[1,])
         b <- unlist(data.frame(para.est)[2,])
         l <- apply((classification$posterior == T), 2, function(x) {table(x)["TRUE"]/length(x)} )
         output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist)[2:4]
         return(output)
 }
-test3 <- estimation3.f(sample, conditions[["C12"]])
-test3
 
-```
-### Strategies 4
-Re do the strategy 3, but set $alpha$ to the true parameter values and set $fix.alpha=TRUE$ in $gammamixEM2$.
-```{r}
-dat = sample
-numOfDist = 3
 estimation4.f <- function(dat, para){
         datCubeRoot <- dat^(1/3)
         numOfDist <- nrow(para)
@@ -163,42 +106,23 @@ estimation4.f <- function(dat, para){
                         test = as.numeric(gammamix.init(unlist(clf.dat[i]), lambda = 1, k = 1)[2:3])                
                         return(test)}
                 else{return(test$theta)}
-                }) 
+        }) 
         a <- para$a
         b <- unlist(data.frame(para.est)[2,])
         l <- apply((classification$posterior == T), 2, function(x) {table(x)["TRUE"]/length(x)} )
         output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist, fix.alpha = T)[2:4]
         return(output)
 }
-test4 <- estimation4.f(sample, conditions[["C12"]])
-test4
 
-```
-
-## Note for simulation:
-* For each of the 4 strategies, keep a list of your output. Construct each list to be of length 5000 such that each element of the list is a matrix with the estimated parameter values and the final log-likehood. Specifiically, if out is your output, then collect your output as $new.out <- rbind(out$gamma.pars, out$lambda, out$loglik)$. Note the fourth row of the output matrix will simply be the log-likehood repeated k times.
-
-* In your lists, make sure you post-process the output by ordering the columns based on their estimates of the component means. Specifically, if you have $new.out$ as defined above, then reorder the columns using <code> new.out<-new.out[,order(new.out[1,]/new.out[2,])] </code>. We do this to avoid the label switching problem in mixture estimation.
-
-* In simulations, so the covergence creterion argument in gammamixEM2 to epsilon = 1e-5.
-
-* Make sure that simulation can recover in case of an unintened error in the EM algorithm. One way to do this is to enclose everything within a while statement. Then wrap the try funtion with option silent=FALSE (should be T?) around the gammamixEM2. Test to see if the output is of class "try-error". If it is, prompt your loop to return to the previous iteration. If not, let the loop increment appropriately.
-
-In total, there are 12 matrix condition, 3 different samplesize, and 4 different starting value strategies. Total condition is 144.
-
-* For each of the 144 simulation condition, calculate the MSEs from the true parameter value as well as the mean and standard deviation of your parameter estimates; i.e., the MC standard deviation of your 5000 estimates will provide an estimate of the standard errors for each parameter.
-
-* USe parallize code and run from the Unix clusters.
-
-```{r simulation}
+#################################
 library(parallel)
 simulation <- function(s.size, condition, strategy){
         # 12 conditions
-        results <- mclapply(condition, function(para){
+        results <- lapply(condition, function(para){
                 # 3 sample size
-                print(para)
+                # print(para)
                 one.iteration.results <- lapply(s.size, function(s){
-                        print(s)
+                        #print(s)
                         dat <- sample.generation(sample.size = s, parameters = para)
                         one.sample.result <- strategy(dat, para)
                         return(one.sample.result)
@@ -208,5 +132,7 @@ simulation <- function(s.size, condition, strategy){
         return(results)
 }
 
-test.sim <- simulation(sample.size, conditions, estimation1.f)
-```
+sim1 <- mclapply( (1:n.iter), function(i){
+        results <- simulation(sample.size, conditions, estimation1.f)
+        return(results)
+})
