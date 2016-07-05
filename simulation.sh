@@ -21,5 +21,8 @@
 cd /home/xch234/mix_gammas/Mix_Gammas/Code
 
 # run the code `test.R`
-Rscript simulation.R
+Rscript simulation2.R
+Rscript simulation3.R
+Rscript simulation4.R
+
 

@@ -1,5 +1,5 @@
-#setwd("~/Documents/Git/Mix_Gammas/Code")
-#setwd("/home/xch234/mix_gammas/Mix_Gammas/Code")
+# setwd("~/Documents/Git/Mix_Gammas/Code")
+setwd("/home/xch234/mix_gammas/Mix_Gammas/Code")
 source("./gammamixEM2.R")
 set.seed(518)
 #library("mixtools")
@@ -134,11 +134,20 @@ simulation <- function(s.size, condition, strategy){
         return(results)
 }
 
-sim1 <- mclapply( (1:n.iter), function(i){
-        results <- simulation(sample.size, conditions, estimation1.f)
+# sim1 <- mclapply( (1:n.iter), function(i){
+#         results <- simulation(sample.size, conditions, estimation1.f)
+#         return(results)
+# }, mc.cores=8)
+# 
+# exportJson <- toJSON(sim1)
+# write(exportJson, "sim1.json")
+
+sim2 <- mclapply( (1:n.iter), function(i){
+        results <- simulation(sample.size, conditions, estimation2.f)
         return(results)
 }, mc.cores=8)
 
-exportJson <- toJSON(sim1)
-write(exportJson, "sim1.json")
+exportJson <- toJSON(sim2)
+write(exportJson, "sim2.json")
+
 
