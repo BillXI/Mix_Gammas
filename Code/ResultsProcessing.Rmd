@@ -1,0 +1,18 @@
+---
+title: "Results"
+author: "Xi Chen"
+date: "July 15, 2016"
+output: html_document
+---
+
+```{r Result}
+library(RJSONIO)
+setwd("/Users/bill/Documents/Git/Mix_Gammas")
+Results <- fromJSON("./Result/sim2.json")
+length(Results) # -> 5000 iterations
+length(Results[[1]]) # -> 12 conditions
+length(Results[[1]][[1]]) # -> 3 Sample Sizes
+
+
+```
+
