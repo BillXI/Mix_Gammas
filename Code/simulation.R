@@ -7,8 +7,10 @@ library("MASS")
 library(RJSONIO)
 ##################
 # sample.size = 5
-n.iter = 5000 # this is B
-sample.size = c(100, 250, 500)
+#n.iter = 5000 # this is B
+n.iter = 2
+#sample.size = c(100, 250, 500)
+sample.size = 100
 
 parameters <- function(){
         conditions <- list()
@@ -94,7 +96,7 @@ sim1 <- mclapply( (1:n.iter), function(i){
         results <- simulation(s.size = sample.size, cond = conditions, strategy = estimation1.f)
         #print(results)
         return(results)
-}, mc.cores=1)
+}, mc.cores=60)
 
 exportJson <- toJSON(sim1)
 write(exportJson, "sim1.json")
