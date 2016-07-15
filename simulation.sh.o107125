@@ -1,0 +1,16 @@
+iteration = 1  log-lik diff = 3.118855  log-lik = -4820.3 
+iteration = 2  log-lik diff = 0.0509708  log-lik = -4820.249 
+iteration = 3  log-lik diff = 0.001379158  log-lik = -4820.248 
+iteration = 4  log-lik diff = 4.004424e-05  log-lik = -4820.248 
+iteration = 5  log-lik diff = 1.172916e-06  log-lik = -4820.248 
+iteration = 6  log-lik diff = 3.439345e-08  log-lik = -4820.248 
+iteration = 7  log-lik diff = 1.00863e-09  log-lik = -4820.248 
+number of iterations= 7 
+number of iterations= 41 
+number of iterations= 89 
+number of iterations= 124 
+number of iterations= 133 
+number of iterations= 161 
+number of iterations= 144 
+number of iterations= 219 
+number of iterations= 878 

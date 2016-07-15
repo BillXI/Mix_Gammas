@@ -1,0 +1,3 @@
+Warning message:
+In mclapply((1:n.iter), function(i) { :
+  all scheduled cores encountered errors in user code
