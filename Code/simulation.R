@@ -7,10 +7,10 @@ library("MASS")
 library(RJSONIO)
 ##################
 # sample.size = 5
-#n.iter = 5000 # this is B
-n.iter = 2
-#sample.size = c(100, 250, 500)
-sample.size = 100
+n.iter = 5000 # this is B
+#n.iter = 2
+sample.size = c(100, 250, 500)
+#sample.size = 100
 
 parameters <- function(){
         conditions <- list()
