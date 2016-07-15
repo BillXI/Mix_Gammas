@@ -6,9 +6,9 @@
 
 # MAX use of cpys and memory
 
-#PBS -l nodes=1,ncpus=30,mem=4G,walltime=48:00:00
+#PBS -l nodes=1,ncpus=60,mem=20G,walltime=20:00:00:00
 
-#PBS -q default
+#PBS -q long
 
 #PBS -M xch234@uky.edu
 
@@ -21,4 +21,4 @@
 cd /home/xch234/mix_gammas/Mix_Gammas/Code
 
 # run the code `test.R`
-Rscript simulation4.R
+Rscript simulation.R
