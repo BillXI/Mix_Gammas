@@ -96,7 +96,7 @@ sim1 <- mclapply( (1:n.iter), function(i){
         results <- simulation(s.size = sample.size, cond = conditions, strategy = estimation1.f)
         #print(results)
         return(results)
-}, mc.cores=60)
+}, mc.cores=40)
 
 exportJson <- toJSON(sim1)
 write(exportJson, "sim1.json")
