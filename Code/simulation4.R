@@ -1,5 +1,5 @@
-# setwd("~/Documents/Git/Mix_Gammas/Code")
-setwd("/home/xch234/mix_gammas/Mix_Gammas/Code")
+setwd("~/Documents/Git/Mix_Gammas/Code")
+#setwd("/home/xch234/mix_gammas/Mix_Gammas/Code")
 source("./gammamixEM2.R")
 set.seed(518)
 library("mixtools")
@@ -7,9 +7,10 @@ library("MASS")
 library(RJSONIO)
 ##################
 # sample.size = 5
-n.iter = 5000 # this is B
-sample.size = c(100, 250, 500)
-
+# n.iter = 5000 # this is B
+n.iter = 1
+# sample.size = c(100, 250, 500)
+sample.size = 10
 parameters <- function(){
         conditions <- list()
         # Condition 1
@@ -62,40 +63,7 @@ sample.generation <- function(sample.size, parameters){
 
 sample <- sample.generation(100, conditions[["C12"]])
 
-###################################
-estimation1.f <- function(dat, para){
-        a <- para$a
-        b <- para$b
-        l <- para$l
-        numOfDist <- nrow(para)
-        output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist)
-        return(output[2:4])
-}
-
-estimation2.f <- function(dat, para){
-        numOfDist <- nrow(para)
-        output <- gammamixEM2(dat, k = numOfDist, epsilon = 0.1)
-        return(output[2:4])
-}
-
-estimation3.f <- function(dat, para){
-        datCubeRoot <- dat^(1/3)
-        numOfDist <- nrow(para)
-        classification <- normalmixEM(datCubeRoot, k = numOfDist) ## The classified data are clustered and not like real classified.
-        clf.dat <- apply((classification$posterior == T), 2, function(x) dat[x] )
-        para.est <- lapply(c(1:numOfDist), function(i){
-                test = try(nr.gamma(x=unlist(clf.dat[i]), eps = 0.01), silent = T)
-                if (class(test)=="try-error"){
-                        test = as.numeric(gammamix.init(unlist(clf.dat[i]), lambda = 1, k = 1)[2:3])                
-                        return(test)}
-                else{return(test$theta)}
-        }) 
-        a <- unlist(data.frame(para.est)[1,])
-        b <- unlist(data.frame(para.est)[2,])
-        l <- apply((classification$posterior == T), 2, function(x) {table(x)["TRUE"]/length(x)} )
-        output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist)[2:4]
-        return(output)
-}
+# Simulation function ###################################
 
 estimation4.f <- function(dat, para){
         datCubeRoot <- dat^(1/3)
@@ -111,7 +79,9 @@ estimation4.f <- function(dat, para){
         }) 
         a <- para$a
         b <- unlist(data.frame(para.est)[2,])
+        print(classification$posterior)
         l <- apply((classification$posterior == T), 2, function(x) {table(x)["TRUE"]/length(x)} )
+        print(l)
         output <- gammamixEM2(dat, lambda = l, alpha = a, beta = b, k = numOfDist, fix.alpha = T)[2:4]
         return(output)
 }
@@ -122,10 +92,10 @@ simulation <- function(s.size, condition, strategy){
         # 12 conditions
         results <- lapply(condition, function(para){
                 # 3 sample size
-                # print(para)
+                #print(para)
                 one.iteration.results <- lapply(s.size, function(s){
                         #print(s)
-                        dat <- sample.generation(sample.size = s, parameters = para)
+                        dat <- as.vector(sample.generation(sample.size = s, parameters = para))
                         one.sample.result <- strategy(dat, para)
                         return(one.sample.result)
                 })
@@ -133,6 +103,8 @@ simulation <- function(s.size, condition, strategy){
         })        
         return(results)
 }
+
+simulation(s.size = c(100), condition = para, estimation4.f)
 
 # sim1 <- mclapply( (1:n.iter), function(i){
 #         results <- simulation(sample.size, conditions, estimation1.f)
@@ -145,9 +117,7 @@ simulation <- function(s.size, condition, strategy){
 sim4 <- mclapply( (1:n.iter), function(i){
         results <- simulation(sample.size, conditions, estimation4.f)
         return(results)
-}, mc.cores=8)
+}, mc.cores=1)
 
 exportJson <- toJSON(sim4)
 write(exportJson, "sim4.json")
-
-

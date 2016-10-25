@@ -2,3 +2,5 @@
 # 
 # 1. Load the mixtools package and then read in the gammamixEM2.R file. (Done)
 # 
+# 
+# July 6
