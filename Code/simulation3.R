@@ -1,5 +1,5 @@
 # setwd("~/Documents/Git/Mix_Gammas/Code")
-setwd("/home/xch234/mix_gammas/Mix_Gammas/Code")
+setwd("/home/bill/Mix_Gammas/Code")
 source("./gammamixEM2.R")
 set.seed(518)
 library("mixtools")
