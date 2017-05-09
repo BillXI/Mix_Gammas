@@ -6,11 +6,12 @@ output: pdf_document
 ---
 ## Read in the gammamixEM2.R file
 ```{r setup, echo=FALSE}
-source("gammamixEMnew.R")
+
 set.seed(518)
 library("mixtools")
 library("MASS")
-getwd()
+source("gammamixEMnew.R")
+
 ```
 
 ## Consider 12 settings and for each of the 12 conditions, do the follwoing:
