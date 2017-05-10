@@ -62,19 +62,19 @@ gammamixEM.new <- function (x, lambda = NULL, alpha = NULL, beta = NULL, k = 2, 
     wt.var <- sapply(1:k,function(i) sum(z[,i] * (x - wt.mean[i])^2)/((n-1)*sum(z[,i])/n))
     shape.mom <- wt.mean^2/wt.var
     scale.mom <- wt.var/wt.mean
-    shape.mle <- sapply(1:k, function(i) uniroot(fn.alpha,interval=c(0.000001,10000),beta=1/old.scale.mle[i],z=z[,i],x=x)$root)    
+    shape.mle <- sapply(1:k, function(i) uniroot(fn.alpha,interval=c(0.000001,10000),beta=1/scale.mom[i],z=z[,i],x=x)$root)    
     scale.mle <- sapply(1:k, function(i) 1/fn.beta(z=z[,i],x=x,alpha=shape.mle[i]))
     lambda.mle <- apply(z,2,mean)
     tmp <- list(lambda=lambda.mle,alpha=scale.mle,beta=shape.mle)
   } else tmp <- gammamix.init(x = x, lambda = lambda, alpha = alpha, 
                               beta = beta, k = k)
-  lambda <- tmp$lambda
+  lambda.mle <- tmp$lambda
+  scale.mle <- tmp$beta
   if(cond==2){
     shape.mle <- rep(mean(tmp$alpha),k)
   } else if(cond==1){
     shape.mle <- tmp$alpha
   } else shape.mle <- rep(fix.alpha,k)
-  scale.mle <- tmp$beta
   
   dens <- function(x, lambda, alpha, beta) {
     k <- length(lambda)
@@ -230,18 +230,18 @@ gammamixEM.new <- function (x, lambda = NULL, alpha = NULL, beta = NULL, k = 2, 
   a
 }  
   
-set.seed(100)  
-shape <- c(10.283, 38.456)
-scale <- 1/c(2298.63, 9366.3)
-x <- c(rgamma(2900, shape = shape[1], scale = scale[1]), rgamma(7100, shape = shape[2], scale = scale[2]))
+#set.seed(100)  
+#shape <- c(10.283, 38.456)
+#scale <- 1/c(2298.63, 9366.3)
+#x <- c(rgamma(2900, shape = shape[1], scale = scale[1]), rgamma(7100, shape = shape[2], scale = scale[2]))
 
-out=gammamixEM.new(x=x, mom.start = TRUE, fix.alpha = 10, verb=TRUE, maxit=5000)
+#out=gammamixEM.new(x=x, mom.start = TRUE, fix.alpha = 10, verb=TRUE, maxit=5000)
     
 
-hist(x,prob=T)
-u=seq(min(x),max(x),length=1000)
-lines(u,out$lambda[1]*dgamma(u,shape=out$gamma.pars[1,1],scale=out$gamma.pars[2,1]),col=2)
-lines(u,out$lambda[2]*dgamma(u,shape=out$gamma.pars[1,2],scale=out$gamma.pars[2,2]),col=3)
+#hist(x,prob=T)
+#u=seq(min(x),max(x),length=1000)
+#lines(u,out$lambda[1]*dgamma(u,shape=out$gamma.pars[1,1],scale=out$gamma.pars[2,1]),col=2)
+#lines(u,out$lambda[2]*dgamma(u,shape=out$gamma.pars[1,2],scale=out$gamma.pars[2,2]),col=3)
 
 
 
