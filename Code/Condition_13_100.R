@@ -5,6 +5,12 @@
 ###############################################################################
 
 set.seed(100)
+requiredPackages = c("mixtools")
+for(p in requiredPackages){
+        if(!require(p,character.only = TRUE)) install.packages(p)
+        library(p,character.only = TRUE)
+}
+source("./Code/gammamixEMnew.R")
 B <- 5000
 k <- 2 #
 alpha <- 5 #
