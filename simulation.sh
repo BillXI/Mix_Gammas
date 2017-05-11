@@ -1,18 +1,9 @@
 #!/bin/bash
+#SBATCH --nodes=1 --ntasks-per-node=1 --mem=2G --time=00:30:00
+#SBATCH --mail-user=xch234@uky.edu
+#SBATCH --mail-type=ALL
 
-# The first line indicates the intepretor: bash/Rscript/sh/...
 
-
-
-# MAX use of cpys and memory
-
-#PBS -l nodes=1,ncpus=1,mem=4G,walltime=20:00:00:00
-
-#PBS -q long
-
-#PBS -M xch234@uky.edu
-
-#PBS -m abe
 
 
 
