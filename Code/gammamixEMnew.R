@@ -117,7 +117,7 @@ gammamixEM.new <- function (x, lambda = NULL, alpha = NULL, beta = NULL, k = 2, 
         mr <- mr + 1
         tmp <- gammamix.init(x = x, lambda = lambda, alpha = alpha, 
                              beta = beta, k = k)
-        lambda <- tmp$lambda
+        lambda.mle <- tmp$lambda
         if(cond==2){
           shape.mle <- rep(mean(tmp$alpha),k)
         } else if(cond==1){
@@ -160,7 +160,7 @@ gammamixEM.new <- function (x, lambda = NULL, alpha = NULL, beta = NULL, k = 2, 
          mr <- mr + 1
          tmp <- gammamix.init(x = x, lambda = lambda, alpha = alpha, 
                               beta = beta, k = k)
-         lambda <- tmp$lambda
+         lambda.mle <- tmp$lambda
          if(cond==2){
            shape.mle <- rep(mean(tmp$alpha),k)
          } else if(cond==1){
@@ -202,7 +202,7 @@ gammamixEM.new <- function (x, lambda = NULL, alpha = NULL, beta = NULL, k = 2, 
         mr <- mr + 1
         tmp <- gammamix.init(x = x, lambda = lambda, alpha = alpha, 
                              beta = beta, k = k)
-        lambda <- tmp$lambda
+        lambda.mle <- tmp$lambda
         if(cond==2){
           shape.mle <- rep(mean(tmp$alpha),k)
         } else if(cond==1){
@@ -224,7 +224,7 @@ gammamixEM.new <- function (x, lambda = NULL, alpha = NULL, beta = NULL, k = 2, 
   theta = rbind(shape.mle, scale.mle)
   rownames(theta) = c("alpha", "beta")
   colnames(theta) = c(paste("comp", ".", 1:k, sep = ""))
-  a = list(x = x, lambda = lambda, gamma.pars = theta, loglik = new.obs.ll, 
+  a = list(x = x, lambda = lambda.mle, gamma.pars = theta, loglik = new.obs.ll, 
            posterior = z, all.loglik = ll, ft = "gammamixEM")
   class(a) = "mixEM"
   a
