@@ -6,7 +6,7 @@
 
 # MAX use of cpys and memory
 
-#PBS -l nodes=1,ncpus=40,mem=20G,walltime=20:00:00:00
+#PBS -l nodes=1,ncpus=1,mem=4G,walltime=20:00:00:00
 
 #PBS -q long
 
