@@ -48,4 +48,4 @@ while(i < B){
         }
         print(i)
 }
-save.image(file="./Result/2017_5_11/2_100.RData")
+save.image(file="./Result/2017_5_11/2_100.Rd")
