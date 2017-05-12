@@ -1,2 +1,0 @@
-/var/spool/slurmd/job07219/slurm_script: line 9: cd: /home/xch234/mix_gammas/Mix_Gammas/Code/2017_15_11/: No such file or directory
-Fatal error: cannot open file 'Condition_1_100.R': No such file or directory
