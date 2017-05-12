@@ -1,0 +1,13 @@
+Loading required package: mixtools
+mixtools package, version 1.1.0, Released 2017-03-10
+This package is based upon work supported by the National Science Foundation under Grant No. SES-0518772.
+
+number of iterations= 59 
+number of iterations= 199 
+number of iterations= 343 
+number of iterations= 60 
+number of iterations= 86 
+number of iterations= 60 
+number of iterations= 21 
+Error in out_1_100_1[[i]] <- tmp : object 'out_1_100_1' not found
+Execution halted
