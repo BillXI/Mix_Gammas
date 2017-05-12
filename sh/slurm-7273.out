@@ -140,3 +140,105 @@ number of iterations= 1082
 number of iterations= 661 
 [1] 34
 number of iterations= 114 
+number of iterations= 523 
+number of iterations= 142 
+[1] 35
+number of iterations= 412 
+number of iterations= 210 
+number of iterations= 2011 
+[1] 36
+One of the variances is going to zero;  trying new starting values.
+One of the variances is going to zero;  trying new starting values.
+One of the variances is going to zero;  trying new starting values.
+number of iterations= 633 
+number of iterations= 30 
+number of iterations= 832 
+[1] 37
+number of iterations= 107 
+number of iterations= 1404 
+WARNING! NOT CONVERGENT! 
+number of iterations= 10000 
+[1] 38
+number of iterations= 283 
+number of iterations= 24 
+number of iterations= 452 
+[1] 39
+number of iterations= 132 
+number of iterations= 27 
+number of iterations= 251 
+[1] 40
+number of iterations= 237 
+number of iterations= 863 
+number of iterations= 457 
+[1] 41
+number of iterations= 460 
+number of iterations= 278 
+number of iterations= 2204 
+[1] 42
+number of iterations= 314 
+number of iterations= 628 
+number of iterations= 592 
+[1] 43
+number of iterations= 153 
+number of iterations= 726 
+number of iterations= 543 
+[1] 44
+number of iterations= 153 
+number of iterations= 27 
+number of iterations= 248 
+[1] 45
+number of iterations= 115 
+number of iterations= 414 
+number of iterations= 273 
+[1] 46
+number of iterations= 167 
+number of iterations= 553 
+number of iterations= 9025 
+[1] 47
+number of iterations= 267 
+number of iterations= 189 
+number of iterations= 384 
+[1] 48
+number of iterations= 32 
+number of iterations= 910 
+number of iterations= 161 
+[1] 49
+number of iterations= 59 
+number of iterations= 1927 
+number of iterations= 783 
+[1] 50
+number of iterations= 212 
+number of iterations= 684 
+number of iterations= 311 
+[1] 51
+number of iterations= 183 
+number of iterations= 499 
+number of iterations= 1141 
+[1] 52
+number of iterations= 305 
+number of iterations= 764 
+number of iterations= 778 
+[1] 53
+number of iterations= 367 
+number of iterations= 46 
+number of iterations= 1156 
+[1] 54
+number of iterations= 1018 
+number of iterations= 299 
+number of iterations= 456 
+[1] 55
+number of iterations= 222 
+number of iterations= 43 
+number of iterations= 763 
+[1] 56
+number of iterations= 449 
+number of iterations= 1223 
+number of iterations= 1029 
+[1] 57
+number of iterations= 187 
+number of iterations= 38 
+number of iterations= 205 
+[1] 58
+number of iterations= 149 
+number of iterations= 983 
+slurmstepd: error: *** JOB 7273 ON compute-0-2 CANCELLED AT 2017-05-12T10:34:45 DUE TO TIME LIMIT ***

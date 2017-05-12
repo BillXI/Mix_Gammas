@@ -1,0 +1,144 @@
+Loading required package: mixtools
+mixtools package, version 1.1.0, Released 2017-03-10
+This package is based upon work supported by the National Science Foundation under Grant No. SES-0518772.
+
+number of iterations= 36 
+number of iterations= 926 
+number of iterations= 282 
+[1] 1
+number of iterations= 42 
+number of iterations= 221 
+number of iterations= 287 
+[1] 2
+number of iterations= 36 
+number of iterations= 1191 
+number of iterations= 1117 
+[1] 3
+number of iterations= 44 
+WARNING! NOT CONVERGENT! 
+number of iterations= 10000 
+WARNING! NOT CONVERGENT! 
+number of iterations= 10000 
+[1] 4
+number of iterations= 190 
+number of iterations= 1267 
+number of iterations= 974 
+[1] 5
+number of iterations= 3 
+number of iterations= 36 
+number of iterations= 897 
+[1] 6
+number of iterations= 125 
+number of iterations= 44 
+number of iterations= 9171 
+[1] 7
+number of iterations= 19 
+number of iterations= 248 
+number of iterations= 239 
+[1] 8
+number of iterations= 265 
+number of iterations= 895 
+WARNING! NOT CONVERGENT! 
+number of iterations= 10000 
+[1] 9
+number of iterations= 29 
+number of iterations= 227 
+number of iterations= 4427 
+[1] 10
+number of iterations= 202 
+number of iterations= 769 
+number of iterations= 8571 
+[1] 11
+number of iterations= 97 
+number of iterations= 473 
+number of iterations= 485 
+[1] 12
+number of iterations= 211 
+number of iterations= 313 
+number of iterations= 668 
+[1] 13
+number of iterations= 114 
+number of iterations= 560 
+number of iterations= 829 
+[1] 14
+number of iterations= 39 
+number of iterations= 539 
+number of iterations= 718 
+[1] 15
+number of iterations= 330 
+number of iterations= 43 
+number of iterations= 734 
+[1] 16
+number of iterations= 77 
+number of iterations= 314 
+number of iterations= 1024 
+[1] 17
+number of iterations= 30 
+number of iterations= 287 
+number of iterations= 242 
+[1] 18
+number of iterations= 65 
+number of iterations= 222 
+WARNING! NOT CONVERGENT! 
+number of iterations= 10000 
+[1] 19
+One of the variances is going to zero;  trying new starting values.
+One of the variances is going to zero;  trying new starting values.
+number of iterations= 47 
+WARNING! NOT CONVERGENT! 
+number of iterations= 10000 
+WARNING! NOT CONVERGENT! 
+number of iterations= 10000 
+[1] 20
+number of iterations= 22 
+number of iterations= 265 
+number of iterations= 327 
+[1] 21
+number of iterations= 19 
+number of iterations= 54 
+number of iterations= 5419 
+[1] 22
+number of iterations= 105 
+number of iterations= 63 
+number of iterations= 390 
+[1] 23
+number of iterations= 47 
+number of iterations= 540 
+number of iterations= 478 
+[1] 24
+number of iterations= 67 
+number of iterations= 134 
+WARNING! NOT CONVERGENT! 
+number of iterations= 10000 
+[1] 25
+number of iterations= 24 
+number of iterations= 61 
+number of iterations= 59 
+[1] 26
+number of iterations= 79 
+number of iterations= 253 
+number of iterations= 366 
+[1] 27
+number of iterations= 349 
+number of iterations= 955 
+number of iterations= 727 
+[1] 28
+number of iterations= 151 
+number of iterations= 55 
+number of iterations= 405 
+[1] 29
+number of iterations= 503 
+number of iterations= 51 
+number of iterations= 5518 
+[1] 30
+number of iterations= 182 
+number of iterations= 548 
+number of iterations= 203 
+[1] 31
+number of iterations= 208 
+number of iterations= 1188 
+number of iterations= 945 
+[1] 32
+number of iterations= 73 
+number of iterations= 430 
+slurmstepd: error: *** JOB 7299 ON compute-0-2 CANCELLED AT 2017-05-12T11:07:46 DUE TO TIME LIMIT ***

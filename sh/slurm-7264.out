@@ -55,3 +55,13 @@ number of iterations= 1329
 number of iterations= 2837 
 [1] 13
 number of iterations= 13 
+WARNING! NOT CONVERGENT! 
+number of iterations= 10000 
+number of iterations= 43 
+[1] 14
+number of iterations= 9 
+number of iterations= 2729 
+number of iterations= 2163 
+[1] 15
+number of iterations= 8 
+slurmstepd: error: *** JOB 7264 ON compute-0-2 CANCELLED AT 2017-05-12T10:33:15 DUE TO TIME LIMIT ***

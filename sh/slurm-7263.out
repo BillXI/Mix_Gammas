@@ -96,3 +96,24 @@ number of iterations= 60
 number of iterations= 91 
 [1] 23
 number of iterations= 7 
+number of iterations= 59 
+number of iterations= 2819 
+[1] 24
+number of iterations= 15 
+number of iterations= 57 
+number of iterations= 2203 
+[1] 25
+number of iterations= 6 
+number of iterations= 1341 
+number of iterations= 2161 
+[1] 26
+number of iterations= 15 
+number of iterations= 1236 
+number of iterations= 3831 
+[1] 27
+number of iterations= 21 
+number of iterations= 4945 
+number of iterations= 1944 
+[1] 28
+number of iterations= 6 
+slurmstepd: error: *** JOB 7263 ON compute-0-2 CANCELLED AT 2017-05-12T10:33:15 DUE TO TIME LIMIT ***

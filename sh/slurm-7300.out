@@ -1,0 +1,131 @@
+Loading required package: mixtools
+mixtools package, version 1.1.0, Released 2017-03-10
+This package is based upon work supported by the National Science Foundation under Grant No. SES-0518772.
+
+number of iterations= 146 
+number of iterations= 581 
+number of iterations= 542 
+[1] 1
+number of iterations= 280 
+number of iterations= 640 
+number of iterations= 940 
+[1] 2
+number of iterations= 83 
+number of iterations= 188 
+number of iterations= 2262 
+[1] 3
+number of iterations= 550 
+number of iterations= 190 
+number of iterations= 1323 
+[1] 4
+number of iterations= 231 
+number of iterations= 702 
+number of iterations= 759 
+[1] 5
+number of iterations= 221 
+number of iterations= 1546 
+number of iterations= 1121 
+[1] 6
+number of iterations= 228 
+WARNING! NOT CONVERGENT! 
+number of iterations= 10000 
+number of iterations= 5955 
+[1] 7
+number of iterations= 494 
+number of iterations= 1337 
+number of iterations= 1138 
+[1] 8
+number of iterations= 333 
+number of iterations= 307 
+number of iterations= 1241 
+[1] 9
+number of iterations= 348 
+number of iterations= 435 
+number of iterations= 650 
+[1] 10
+number of iterations= 503 
+number of iterations= 786 
+number of iterations= 156 
+[1] 11
+number of iterations= 572 
+number of iterations= 767 
+number of iterations= 1525 
+[1] 12
+number of iterations= 253 
+number of iterations= 427 
+number of iterations= 264 
+[1] 13
+number of iterations= 94 
+number of iterations= 162 
+number of iterations= 1273 
+[1] 14
+number of iterations= 175 
+number of iterations= 1194 
+number of iterations= 377 
+[1] 15
+number of iterations= 52 
+number of iterations= 126 
+number of iterations= 494 
+[1] 16
+number of iterations= 96 
+number of iterations= 402 
+number of iterations= 455 
+[1] 17
+number of iterations= 74 
+number of iterations= 640 
+number of iterations= 524 
+[1] 18
+number of iterations= 188 
+number of iterations= 940 
+number of iterations= 914 
+[1] 19
+number of iterations= 118 
+number of iterations= 1976 
+number of iterations= 3216 
+[1] 20
+number of iterations= 123 
+number of iterations= 321 
+number of iterations= 583 
+[1] 21
+number of iterations= 133 
+number of iterations= 539 
+number of iterations= 629 
+[1] 22
+number of iterations= 876 
+number of iterations= 784 
+number of iterations= 878 
+[1] 23
+number of iterations= 223 
+number of iterations= 486 
+number of iterations= 1512 
+[1] 24
+number of iterations= 375 
+number of iterations= 246 
+number of iterations= 1512 
+[1] 25
+number of iterations= 1593 
+number of iterations= 4935 
+number of iterations= 106 
+[1] 26
+number of iterations= 1168 
+number of iterations= 958 
+number of iterations= 777 
+[1] 27
+number of iterations= 344 
+number of iterations= 478 
+number of iterations= 259 
+[1] 28
+number of iterations= 289 
+number of iterations= 1139 
+number of iterations= 261 
+[1] 29
+number of iterations= 113 
+number of iterations= 260 
+number of iterations= 1830 
+[1] 30
+number of iterations= 41 
+number of iterations= 168 
+number of iterations= 191 
+[1] 31
+number of iterations= 14 
+slurmstepd: error: *** JOB 7300 ON compute-0-2 CANCELLED AT 2017-05-12T11:11:45 DUE TO TIME LIMIT ***

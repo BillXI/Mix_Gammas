@@ -1,0 +1,47 @@
+Loading required package: mixtools
+mixtools package, version 1.1.0, Released 2017-03-10
+This package is based upon work supported by the National Science Foundation under Grant No. SES-0518772.
+
+number of iterations= 54 
+number of iterations= 993 
+number of iterations= 1443 
+[1] 1
+number of iterations= 1806 
+number of iterations= 547 
+number of iterations= 1528 
+[1] 2
+number of iterations= 3328 
+number of iterations= 393 
+number of iterations= 3552 
+[1] 3
+number of iterations= 108 
+number of iterations= 913 
+number of iterations= 474 
+[1] 4
+number of iterations= 492 
+number of iterations= 4360 
+number of iterations= 4728 
+[1] 5
+number of iterations= 623 
+number of iterations= 1932 
+number of iterations= 108 
+[1] 6
+number of iterations= 138 
+number of iterations= 951 
+number of iterations= 241 
+[1] 7
+number of iterations= 216 
+number of iterations= 3487 
+number of iterations= 3290 
+[1] 8
+number of iterations= 123 
+number of iterations= 1045 
+number of iterations= 984 
+[1] 9
+number of iterations= 478 
+number of iterations= 518 
+number of iterations= 602 
+[1] 10
+number of iterations= 662 
+number of iterations= 2549 
+slurmstepd: error: *** JOB 7295 ON compute-0-2 CANCELLED AT 2017-05-12T11:02:15 DUE TO TIME LIMIT ***

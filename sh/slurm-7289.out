@@ -1,0 +1,615 @@
+Loading required package: mixtools
+mixtools package, version 1.1.0, Released 2017-03-10
+This package is based upon work supported by the National Science Foundation under Grant No. SES-0518772.
+
+number of iterations= 10 
+number of iterations= 383 
+number of iterations= 549 
+[1] 1
+number of iterations= 7 
+number of iterations= 351 
+number of iterations= 265 
+[1] 2
+number of iterations= 3 
+number of iterations= 314 
+number of iterations= 333 
+[1] 3
+number of iterations= 8 
+number of iterations= 257 
+number of iterations= 203 
+[1] 4
+number of iterations= 5 
+number of iterations= 366 
+number of iterations= 395 
+[1] 5
+number of iterations= 6 
+number of iterations= 503 
+number of iterations= 465 
+[1] 6
+number of iterations= 11 
+number of iterations= 395 
+number of iterations= 408 
+[1] 7
+number of iterations= 6 
+number of iterations= 435 
+number of iterations= 619 
+[1] 8
+number of iterations= 12 
+number of iterations= 411 
+number of iterations= 531 
+[1] 9
+number of iterations= 3 
+number of iterations= 296 
+number of iterations= 516 
+[1] 10
+number of iterations= 4 
+number of iterations= 328 
+number of iterations= 656 
+[1] 11
+number of iterations= 4 
+number of iterations= 425 
+number of iterations= 275 
+[1] 12
+number of iterations= 9 
+number of iterations= 401 
+number of iterations= 469 
+[1] 13
+number of iterations= 6 
+number of iterations= 310 
+number of iterations= 284 
+[1] 14
+number of iterations= 4 
+number of iterations= 448 
+number of iterations= 435 
+[1] 15
+number of iterations= 11 
+number of iterations= 412 
+number of iterations= 387 
+[1] 16
+number of iterations= 8 
+number of iterations= 323 
+number of iterations= 461 
+[1] 17
+number of iterations= 5 
+number of iterations= 304 
+number of iterations= 209 
+[1] 18
+number of iterations= 5 
+number of iterations= 311 
+number of iterations= 229 
+[1] 19
+number of iterations= 7 
+number of iterations= 410 
+number of iterations= 387 
+[1] 20
+number of iterations= 8 
+number of iterations= 371 
+number of iterations= 468 
+[1] 21
+number of iterations= 4 
+number of iterations= 325 
+number of iterations= 334 
+[1] 22
+number of iterations= 10 
+number of iterations= 385 
+number of iterations= 464 
+[1] 23
+number of iterations= 6 
+number of iterations= 303 
+number of iterations= 437 
+[1] 24
+number of iterations= 7 
+number of iterations= 288 
+number of iterations= 299 
+[1] 25
+number of iterations= 9 
+number of iterations= 341 
+number of iterations= 482 
+[1] 26
+number of iterations= 13 
+number of iterations= 371 
+number of iterations= 443 
+[1] 27
+number of iterations= 5 
+number of iterations= 469 
+number of iterations= 472 
+[1] 28
+number of iterations= 7 
+number of iterations= 317 
+number of iterations= 437 
+[1] 29
+number of iterations= 7 
+number of iterations= 341 
+number of iterations= 311 
+[1] 30
+number of iterations= 7 
+number of iterations= 326 
+number of iterations= 345 
+[1] 31
+number of iterations= 7 
+number of iterations= 322 
+number of iterations= 600 
+[1] 32
+number of iterations= 7 
+number of iterations= 277 
+number of iterations= 348 
+[1] 33
+number of iterations= 10 
+number of iterations= 258 
+number of iterations= 241 
+[1] 34
+number of iterations= 8 
+number of iterations= 308 
+number of iterations= 324 
+[1] 35
+number of iterations= 8 
+number of iterations= 390 
+number of iterations= 349 
+[1] 36
+number of iterations= 4 
+number of iterations= 361 
+number of iterations= 320 
+[1] 37
+number of iterations= 5 
+number of iterations= 358 
+number of iterations= 387 
+[1] 38
+number of iterations= 10 
+number of iterations= 353 
+number of iterations= 472 
+[1] 39
+number of iterations= 5 
+number of iterations= 301 
+number of iterations= 385 
+[1] 40
+number of iterations= 5 
+number of iterations= 282 
+number of iterations= 379 
+[1] 41
+number of iterations= 5 
+number of iterations= 362 
+number of iterations= 423 
+[1] 42
+number of iterations= 5 
+number of iterations= 462 
+number of iterations= 554 
+[1] 43
+number of iterations= 7 
+number of iterations= 382 
+number of iterations= 477 
+[1] 44
+number of iterations= 3 
+number of iterations= 353 
+number of iterations= 331 
+[1] 45
+number of iterations= 7 
+number of iterations= 318 
+number of iterations= 303 
+[1] 46
+number of iterations= 9 
+number of iterations= 396 
+number of iterations= 442 
+[1] 47
+number of iterations= 4 
+number of iterations= 290 
+number of iterations= 303 
+[1] 48
+number of iterations= 9 
+number of iterations= 357 
+number of iterations= 496 
+[1] 49
+number of iterations= 4 
+number of iterations= 321 
+number of iterations= 317 
+[1] 50
+number of iterations= 3 
+number of iterations= 288 
+number of iterations= 278 
+[1] 51
+number of iterations= 6 
+number of iterations= 425 
+number of iterations= 350 
+[1] 52
+number of iterations= 7 
+number of iterations= 351 
+number of iterations= 260 
+[1] 53
+number of iterations= 6 
+number of iterations= 295 
+number of iterations= 326 
+[1] 54
+number of iterations= 6 
+number of iterations= 283 
+number of iterations= 490 
+[1] 55
+number of iterations= 6 
+number of iterations= 373 
+number of iterations= 388 
+[1] 56
+number of iterations= 4 
+number of iterations= 306 
+number of iterations= 314 
+[1] 57
+number of iterations= 8 
+number of iterations= 345 
+number of iterations= 395 
+[1] 58
+number of iterations= 8 
+number of iterations= 342 
+number of iterations= 413 
+[1] 59
+number of iterations= 6 
+number of iterations= 373 
+number of iterations= 442 
+[1] 60
+number of iterations= 6 
+number of iterations= 307 
+number of iterations= 341 
+[1] 61
+number of iterations= 4 
+number of iterations= 328 
+number of iterations= 263 
+[1] 62
+number of iterations= 7 
+number of iterations= 336 
+number of iterations= 318 
+[1] 63
+number of iterations= 8 
+number of iterations= 416 
+number of iterations= 473 
+[1] 64
+number of iterations= 6 
+number of iterations= 356 
+number of iterations= 301 
+[1] 65
+number of iterations= 9 
+number of iterations= 321 
+number of iterations= 306 
+[1] 66
+number of iterations= 5 
+number of iterations= 434 
+number of iterations= 439 
+[1] 67
+number of iterations= 5 
+number of iterations= 415 
+number of iterations= 458 
+[1] 68
+number of iterations= 5 
+number of iterations= 473 
+number of iterations= 377 
+[1] 69
+number of iterations= 8 
+number of iterations= 358 
+number of iterations= 470 
+[1] 70
+number of iterations= 9 
+number of iterations= 303 
+number of iterations= 272 
+[1] 71
+number of iterations= 10 
+number of iterations= 357 
+number of iterations= 335 
+[1] 72
+number of iterations= 8 
+number of iterations= 371 
+number of iterations= 475 
+[1] 73
+number of iterations= 4 
+number of iterations= 365 
+number of iterations= 440 
+[1] 74
+number of iterations= 4 
+number of iterations= 362 
+number of iterations= 351 
+[1] 75
+number of iterations= 5 
+number of iterations= 366 
+number of iterations= 336 
+[1] 76
+number of iterations= 6 
+number of iterations= 258 
+number of iterations= 286 
+[1] 77
+number of iterations= 6 
+number of iterations= 330 
+number of iterations= 340 
+[1] 78
+number of iterations= 6 
+number of iterations= 391 
+number of iterations= 645 
+[1] 79
+number of iterations= 7 
+number of iterations= 419 
+number of iterations= 405 
+[1] 80
+number of iterations= 5 
+number of iterations= 368 
+number of iterations= 355 
+[1] 81
+number of iterations= 6 
+number of iterations= 360 
+number of iterations= 121 
+[1] 82
+number of iterations= 4 
+number of iterations= 328 
+number of iterations= 429 
+[1] 83
+number of iterations= 8 
+number of iterations= 404 
+number of iterations= 528 
+[1] 84
+number of iterations= 4 
+number of iterations= 375 
+number of iterations= 364 
+[1] 85
+number of iterations= 5 
+number of iterations= 391 
+number of iterations= 359 
+[1] 86
+number of iterations= 6 
+number of iterations= 413 
+number of iterations= 678 
+[1] 87
+number of iterations= 3 
+number of iterations= 342 
+number of iterations= 416 
+[1] 88
+number of iterations= 10 
+number of iterations= 300 
+number of iterations= 354 
+[1] 89
+number of iterations= 6 
+number of iterations= 309 
+number of iterations= 294 
+[1] 90
+number of iterations= 5 
+number of iterations= 346 
+number of iterations= 289 
+[1] 91
+number of iterations= 7 
+number of iterations= 349 
+number of iterations= 366 
+[1] 92
+number of iterations= 5 
+number of iterations= 384 
+number of iterations= 798 
+[1] 93
+number of iterations= 8 
+number of iterations= 309 
+number of iterations= 264 
+[1] 94
+number of iterations= 10 
+number of iterations= 407 
+number of iterations= 560 
+[1] 95
+number of iterations= 7 
+number of iterations= 382 
+number of iterations= 632 
+[1] 96
+number of iterations= 8 
+number of iterations= 266 
+number of iterations= 301 
+[1] 97
+number of iterations= 3 
+number of iterations= 342 
+number of iterations= 492 
+[1] 98
+number of iterations= 4 
+number of iterations= 361 
+number of iterations= 277 
+[1] 99
+number of iterations= 10 
+number of iterations= 358 
+number of iterations= 316 
+[1] 100
+number of iterations= 6 
+number of iterations= 441 
+number of iterations= 339 
+[1] 101
+number of iterations= 6 
+number of iterations= 311 
+number of iterations= 368 
+[1] 102
+number of iterations= 8 
+number of iterations= 290 
+number of iterations= 431 
+[1] 103
+number of iterations= 9 
+number of iterations= 471 
+number of iterations= 466 
+[1] 104
+number of iterations= 6 
+number of iterations= 311 
+number of iterations= 404 
+[1] 105
+number of iterations= 7 
+number of iterations= 282 
+number of iterations= 286 
+[1] 106
+number of iterations= 5 
+number of iterations= 263 
+number of iterations= 393 
+[1] 107
+number of iterations= 5 
+number of iterations= 367 
+number of iterations= 251 
+[1] 108
+number of iterations= 6 
+number of iterations= 382 
+number of iterations= 311 
+[1] 109
+number of iterations= 8 
+number of iterations= 295 
+number of iterations= 444 
+[1] 110
+number of iterations= 7 
+number of iterations= 305 
+number of iterations= 257 
+[1] 111
+number of iterations= 8 
+number of iterations= 253 
+number of iterations= 170 
+[1] 112
+number of iterations= 8 
+number of iterations= 373 
+number of iterations= 332 
+[1] 113
+number of iterations= 6 
+number of iterations= 280 
+number of iterations= 293 
+[1] 114
+number of iterations= 6 
+number of iterations= 366 
+number of iterations= 720 
+[1] 115
+number of iterations= 7 
+number of iterations= 329 
+number of iterations= 281 
+[1] 116
+number of iterations= 10 
+number of iterations= 369 
+number of iterations= 468 
+[1] 117
+number of iterations= 5 
+number of iterations= 310 
+number of iterations= 364 
+[1] 118
+number of iterations= 3 
+number of iterations= 400 
+number of iterations= 459 
+[1] 119
+number of iterations= 9 
+number of iterations= 386 
+number of iterations= 250 
+[1] 120
+number of iterations= 6 
+number of iterations= 302 
+number of iterations= 472 
+[1] 121
+number of iterations= 11 
+number of iterations= 326 
+number of iterations= 341 
+[1] 122
+number of iterations= 11 
+number of iterations= 287 
+number of iterations= 286 
+[1] 123
+number of iterations= 8 
+number of iterations= 338 
+number of iterations= 239 
+[1] 124
+number of iterations= 9 
+number of iterations= 378 
+number of iterations= 21 
+[1] 125
+number of iterations= 6 
+number of iterations= 376 
+number of iterations= 380 
+[1] 126
+number of iterations= 9 
+number of iterations= 350 
+number of iterations= 297 
+[1] 127
+number of iterations= 10 
+number of iterations= 305 
+number of iterations= 292 
+[1] 128
+number of iterations= 7 
+number of iterations= 302 
+number of iterations= 368 
+[1] 129
+number of iterations= 4 
+number of iterations= 359 
+number of iterations= 467 
+[1] 130
+number of iterations= 4 
+number of iterations= 325 
+number of iterations= 387 
+[1] 131
+number of iterations= 11 
+number of iterations= 349 
+number of iterations= 500 
+[1] 132
+number of iterations= 8 
+number of iterations= 412 
+number of iterations= 604 
+[1] 133
+number of iterations= 10 
+number of iterations= 297 
+number of iterations= 406 
+[1] 134
+number of iterations= 9 
+number of iterations= 358 
+number of iterations= 419 
+[1] 135
+number of iterations= 12 
+number of iterations= 290 
+number of iterations= 515 
+[1] 136
+number of iterations= 6 
+number of iterations= 393 
+number of iterations= 329 
+[1] 137
+number of iterations= 4 
+number of iterations= 326 
+number of iterations= 293 
+[1] 138
+number of iterations= 6 
+number of iterations= 354 
+number of iterations= 388 
+[1] 139
+number of iterations= 6 
+number of iterations= 396 
+number of iterations= 620 
+[1] 140
+number of iterations= 10 
+number of iterations= 353 
+number of iterations= 339 
+[1] 141
+number of iterations= 5 
+number of iterations= 323 
+number of iterations= 357 
+[1] 142
+number of iterations= 9 
+number of iterations= 406 
+number of iterations= 622 
+[1] 143
+number of iterations= 6 
+number of iterations= 423 
+number of iterations= 628 
+[1] 144
+number of iterations= 13 
+number of iterations= 328 
+number of iterations= 482 
+[1] 145
+number of iterations= 4 
+number of iterations= 303 
+number of iterations= 290 
+[1] 146
+number of iterations= 7 
+number of iterations= 297 
+number of iterations= 293 
+[1] 147
+number of iterations= 5 
+number of iterations= 306 
+number of iterations= 717 
+[1] 148
+number of iterations= 6 
+number of iterations= 404 
+number of iterations= 432 
+[1] 149
+number of iterations= 7 
+number of iterations= 350 
+number of iterations= 277 
+[1] 150
+number of iterations= 8 
+number of iterations= 391 
+number of iterations= 671 
+[1] 151
+number of iterations= 5 
+number of iterations= 405 
+number of iterations= 404 
+[1] 152
+number of iterations= 5 
+number of iterations= 288 
+slurmstepd: error: *** JOB 7289 ON compute-0-2 CANCELLED AT 2017-05-12T10:55:15 DUE TO TIME LIMIT ***

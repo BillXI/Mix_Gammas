@@ -32,3 +32,11 @@ number of iterations= 1805
 [1] 7
 number of iterations= 9 
 number of iterations= 1621 
+number of iterations= 3203 
+[1] 8
+number of iterations= 6 
+number of iterations= 1477 
+number of iterations= 2092 
+[1] 9
+number of iterations= 8 
+slurmstepd: error: *** JOB 7265 ON compute-0-2 CANCELLED AT 2017-05-12T10:33:15 DUE TO TIME LIMIT ***
