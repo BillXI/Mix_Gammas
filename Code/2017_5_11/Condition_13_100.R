@@ -1,6 +1,6 @@
 ###############################################################################
 ###############################################################################
-### Condition 13 100
+### Condition 13_100
 ###############################################################################
 ###############################################################################
 
@@ -47,16 +47,16 @@ while(i < B){
   } else {
     tmp <- rbind(tmp.out_1$gamma.par,tmp.out_1$lambda,tmp.out_1$loglik,length(tmp.out_1$all.loglik)-1)
     tmp <- tmp[,order(tmp[1,]/tmp[2,])]
-    out_1_100_1[[i]] <- tmp #
+    out_13_100_1[[i]] <- tmp #
     tmp <- rbind(tmp.out_2$gamma.par,tmp.out_2$lambda,tmp.out_2$loglik,length(tmp.out_2$all.loglik)-1)
     tmp <- tmp[,order(tmp[1,]/tmp[2,])]
-    out_1_100_2[[i]] <- tmp #
+    out_13_100_2[[i]] <- tmp #
     tmp <- rbind(tmp.out_3$gamma.par,tmp.out_3$lambda,tmp.out_3$loglik,length(tmp.out_3$all.loglik)-1)
     tmp <- tmp[,order(tmp[1,]/tmp[2,])]
-    out_1_100_3[[i]] <- tmp #
+    out_13_100_3[[i]] <- tmp #
     tmp <- rbind(tmp.out_4$gamma.par,tmp.out_4$lambda,tmp.out_4$loglik,length(tmp.out_4$all.loglik)-1)
     tmp <- tmp[,order(tmp[1,]/tmp[2,])]
-    out_1_100_4[[i]] <- tmp #
+    out_13_100_4[[i]] <- tmp #
     time1[i,] <- c(s1)[1:3]
     time2[i,] <- c(s2)[1:3]
     time3[i,] <- c(s3)[1:3]
@@ -66,4 +66,4 @@ while(i < B){
 }
 
 
-save.image(file="./Result/2017_5_11/13_100.RData")
+save.image(file="./Result/2017_5_11/13_100.Rd")
