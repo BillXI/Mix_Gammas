@@ -6,5 +6,5 @@
 
 # change dir to your working dir
 
-cd /home/xch234/mix_gammas/Mix_Gammas/Code/2017_15_11/
+cd /home/xch234/mix_gammas/Mix_Gammas/Code/2017_5_11
 Rscript Condition_15_250.R

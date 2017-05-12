@@ -6,7 +6,7 @@ b = "#!/bin/bash
 
 # change dir to your working dir
 
-cd /home/xch234/mix_gammas/Mix_Gammas/Code/2017_15_11/"
+cd /home/xch234/mix_gammas/Mix_Gammas/Code/2017_5_11"
 
 a = list.files("./Code/2017_5_11/")
 
