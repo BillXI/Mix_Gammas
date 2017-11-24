@@ -2,5 +2,5 @@
 
 
 for filename in sh/*; do
-    qsub filename
+    qsub $filename
 done
