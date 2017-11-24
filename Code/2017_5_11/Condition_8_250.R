@@ -28,9 +28,9 @@ out_8_250_2 <- vector("list",B) #Rename for each condition and sample size; e.g.
 i <- 0
 while(i < B){
         i <- i+1
-        s1 <- system.time(tmp.out_1 <- try(suppressWarnings(gammamixEM.new(x=x[,i], mom.start = TRUE, fix.alpha = FALSE, 
+        s1 <- system.time(tmp.out_1 <- try(suppressWarnings(gammamixEM.new(x=x[,i], k=k, mom.start = TRUE, fix.alpha = FALSE, 
                                                                            verb=FALSE, maxit=10000, eps=1e-5)),silent = TRUE))
-        s2 <- system.time(tmp.out_2 <- try(suppressWarnings(gammamixEM.new(x=x[,i], mom.start = FALSE, fix.alpha = FALSE, 
+        s2 <- system.time(tmp.out_2 <- try(suppressWarnings(gammamixEM.new(x=x[,i], k=k, mom.start = FALSE, fix.alpha = FALSE, 
                                                                            verb=FALSE, maxit=10000, eps=1e-5)),silent = TRUE))
         if(class(tmp.out_1)=="try-error"|class(tmp.out_2)=="try-error"){
                 x[,i] <- apply(rmultinom(n,size=1,prob=lambda)*matrix(rgamma(k*n,shape=alpha,scale=1/beta),nrow=k),2,sum)
