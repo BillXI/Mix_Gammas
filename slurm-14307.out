@@ -1,0 +1,6 @@
+There was an error running the SLURM sbatch command.
+The command was:
+'/usr/bin/sbatch -e filename.e%A -o filename.o%A filename 2>&1'
+and the output was:
+'sbatch: error: Unable to open file filename
+'
