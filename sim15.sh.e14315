@@ -1,0 +1,10 @@
+Loading required package: mixtools
+Installing package into '/usr/lib64/R/library'
+(as 'lib' is unspecified)
+Warning in install.packages(p) :
+  'lib = "/usr/lib64/R/library"' is not writable
+Error in install.packages(p) : unable to install packages
+In addition: Warning message:
+In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+  there is no package called 'mixtools'
+Execution halted
