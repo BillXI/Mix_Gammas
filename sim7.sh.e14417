@@ -1,0 +1,5 @@
+Loading required package: mixtools
+mixtools package, version 1.1.0, Released 2017-03-10
+This package is based upon work supported by the National Science Foundation under Grant No. SES-0518772.
+
+slurmstepd: error: *** JOB 14417 ON compute-0-5 CANCELLED AT 2017-11-30T14:30:44 ***
