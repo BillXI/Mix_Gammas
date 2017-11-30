@@ -10,6 +10,10 @@ cd /home/xch234/mix_gammas/Mix_Gammas/Code/2017_11_24"
 
 a = list.files("./Code/2017_11_24/")
 
+doneJob = gsub(".Rd", "", list.files("./Result/2017_11_24/"))
+previousJob = gsub(".R|Condition_", "", a)
+newJob = a[-which(previousJob %in% doneJob)]
+a = newJob
 a = paste0("Rscript ", a)
 
 c = paste0(b, "\n", a)
