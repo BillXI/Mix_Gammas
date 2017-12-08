@@ -1,4 +1,4 @@
-b = "#!/bin/bash
+ b = "#!/bin/bash
 #SBATCH --nodes=1 --ntasks-per-node=1 --mem=2G 
 #SBATCH -t 30-00:00
 #SBATCH --mail-user=xch234@uky.edu
@@ -6,14 +6,14 @@ b = "#!/bin/bash
 
 # change dir to your working dir
 
-cd /home/xch234/mix_gammas/Mix_Gammas/Code/2017_11_24"
+cd /home/xch234/mix_gammas/Mix_Gammas/Code/2017_12_8"
 
-a = list.files("./Code/2017_11_24/")
+a = list.files("/home/xch234/mix_gammas/Mix_gammas/2017_12_8/")
 
-doneJob = gsub(".Rd", "", list.files("./Result/2017_11_24/"))
-previousJob = gsub(".R|Condition_", "", a)
-newJob = a[-which(previousJob %in% doneJob)]
-a = newJob
+# doneJob = gsub(".Rd", "", list.files("./Result/2017_12_8/"))
+# previousJob = gsub(".R|Condition_", "", a)
+# newJob = a[-which(previousJob %in% doneJob)]
+# a = newJob
 a = paste0("Rscript ", a)
 
 c = paste0(b, "\n", a)
