@@ -16,7 +16,7 @@ B <- 5000
 k <- 3 #
 alpha= c(1, 20, 50) #
 beta = c(2, 4, 3) #
-lambda = c(0.2, 0.3, 0.5)#
+lambda = c(1/3,1/3,1/3)#
 n <- 250 #
 x <- sapply(1:B,function(i) apply(rmultinom(n,size=1,prob=lambda)*matrix(rgamma(k*n,shape=alpha,scale=1/beta),nrow=k),2,sum))
 restarts <- 0
