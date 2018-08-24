@@ -6,9 +6,9 @@ b = "#!/bin/bash
 
 # change dir to your working dir
 
-cd /home/xch234/mix_gammas/Mix_Gammas/Code/2017_12_8"
+cd /home/xch234/mix_gammas/Mix_Gammas/Code/2018_8_Corrected_Code"
 
-a = list.files("./code/2017_12_8/")
+a = list.files("./code/2018_8_Corrected_Code/")
 
 # doneJob = gsub(".Rd", "", list.files("./Result/2017_12_8/"))
 # previousJob = gsub(".R|Condition_", "", a)

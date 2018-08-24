@@ -7,4 +7,4 @@
 # change dir to your working dir
 
 cd /home/xch234/mix_gammas/Mix_Gammas/Code/2018_8_Corrected_Code
-Rscript Condition_13_100.R
+Rscript Condition_15_100.R

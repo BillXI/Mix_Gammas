@@ -1,5 +1,9 @@
 # Mix_Gammas
 ## Progress:
+### 2018, Aug 24
+* Received Dr. Young's "Corrected code", save under "./Code/2018_8_Corrected_Code" 
+    - "There are a total of 9 conditions that need to be reran (Conditions 13, 14, 15, for each of the 3 different sample sizes).  I have attached the updated scripts to correct the errors that were in there. Please let me know if you are able to rerun these 9 conditions and if you have any questions."
+
 ### 2017, Dec 10
 * 3 simulations were wrong: Condition 9 settings (9_100.Rd, 9_250.Rd, and 9_500.Rd) 
 * Re-done the simulations for Condition 9 and return results:
