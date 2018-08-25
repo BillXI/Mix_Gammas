@@ -25,3 +25,4 @@
 1. Need to geneare the .sh files: run the "GenerateSH.R" and change the parameters inside.
 2. Make sure change the save location in the files in Code/
 3. Run the "sbatch simulation.sh"
+4. To check the queue: squeue

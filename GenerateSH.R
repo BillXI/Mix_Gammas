@@ -10,7 +10,7 @@ cd /home/xch234/mix_gammas/Mix_Gammas/Code/2018_8_Corrected_Code"
 
 a = list.files("./code/2018_8_Corrected_Code/")
 
-# doneJob = gsub(".Rd", "", list.files("./Result/2017_12_8/"))
+# doneJob = gsub(".Rd", "", list.files("./Result/2018_8_16/"))
 # previousJob = gsub(".R|Condition_", "", a)
 # newJob = a[-which(previousJob %in% doneJob)]
 # a = newJob
